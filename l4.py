@@ -1,12 +1,11 @@
 from math import factorial, exp, fabs, sqrt
-from numpy import sign
 import matplotlib.pyplot as plt
 import random
 
 print('Zad. 1')
 expr = lambda x: x/100*100-x
 errors = [x for x in range (1,51) if expr(x) != 0]
-print('Błąd zachodzi dla liczb {} i jest spowodowany skończaną dokładnością komputera.'.format(errors))
+print('Błąd zachodzi dla liczb {} i jest spowodowany skończoną dokładnością komputera'.format(errors))
 
 print('Zad. 2')
 X = [10, 2, -2, -10]
@@ -40,8 +39,8 @@ print('Bezpieczniej jest używać drugiego wyrażenia')
 
 
 print('Zad. 4')
-x = 10**(7.4)
-y = 10**(8.5)
+x = 10**7.4
+y = 10**8.5
 B = [random.uniform(x,y) for _ in range(100)]
 
 # z treści: a = c = 1 oraz sign(b) zawsze równe 1
