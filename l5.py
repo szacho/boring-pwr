@@ -72,10 +72,7 @@ examples = ['Was it a car or a cat I saw?', 'A man, a plan, a canal, Panama!', "
 # Zad.6
 print('Zad.6')
 def isListSorted(lst):
-    if sorted(lst) == lst:
-        return True
-    else: 
-        return False
+    return sorted(lst) == lst
 
 examples = [[1,2,3,4], [1,3,2,4], ['A', 'a', 'b'], ['A', 'b', 'a']]
 [print('{} -> {}'.format(e, isListSorted(e))) for e in examples]
