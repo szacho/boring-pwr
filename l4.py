@@ -46,7 +46,18 @@ B = [random.uniform(x,y) for _ in range(100)]
 # z treści: a = c = 1 oraz sign(b) zawsze równe 1
 sol1 = lambda b: ((-b-sqrt(b*b-4))/2, (-b+sqrt(b*b-4))/2)
 sol2 = lambda b: ((-b-sqrt(b*b-4))/2, 1/((-b-sqrt(b*b-4))/2))
+check = lambda x, b: x*x+b*x+1 == 0
+precision = { 1: 0, 2: 0 }
 for b in B:
-    print(sol1(b))
-    print(sol2(b))
-print('Wzór (1) jest dokładniejszy')
+    try:
+        for x in sol1(b):
+            if check(x, b): 
+                precision[1]+=1
+        for x in sol2(b):
+            if check(x, b):    
+                precision[2]+=1
+    except ZeroDivisionError:
+        pass
+
+print(precision)
+print('Lepiej jest używać wzoru (2)')
