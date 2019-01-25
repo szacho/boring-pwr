@@ -1,3 +1,13 @@
+'''
+Usage:
+import Disc //from <pathToFile>
+Reference:
+Disc.move(self, coords)
+    Translate self by given vector coords = [x, y] where x, y are floats.
+Disc.rotateVector(self, angle)
+    Rotate self counterclockwise through an angle = x using rotation matrix where x is a float.
+'''
+
 from math import cos, sin
 
 class Disc:
