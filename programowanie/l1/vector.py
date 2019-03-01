@@ -99,16 +99,3 @@ class Vector:
 
     def __repr__(self):
         return str(self.values)
-
-
-# v1 = Vector()
-# v2 = Vector()
-# v1.randomize()
-# v2.setValues([1,2,3])
-# print(v1+v2)
-# print(v1-v2)
-# print(2*v1)
-# print(v1*v2)
-# print(v1[0])
-# print(1 in v2)
-# print(1 in v1)
