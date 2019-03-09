@@ -39,6 +39,14 @@ class Vector:
         """
         return sum(self.values)
 
+    def scalarProduct(self, other):
+        if isinstance(other, Vector) and other.size is self.size:
+            return sum([ a*b for a, b in zip(self.values, other.values) ])
+        elif isinstance(other, Vector) and other.size is not self.size:
+            raise ValueError('Cannot calculate scalar product, dimensions are not equal')
+        else:
+            raise TypeError('Cannot perform multiplication of {} and {}'.format(self.__class__.__name__, other.__class__.__name__))
+
     def __getitem__(self, key):
         """
             [] operator returns particular vector element
@@ -88,12 +96,8 @@ class Vector:
             new = Vector()
             new.setValues(multiplied)
             return new
-        elif isinstance(other, Vector) and other.size is self.size:
-            return sum([ a*b for a, b in zip(self.values, other.values) ])
-        elif isinstance(other, Vector) and other.size is not self.size:
-            raise ValueError('Cannot calculate scalar product, dimensions are not equal')
         else:
-            raise TypeError('Cannot perform multiplication of {} and {}'.format(self.__class__.__name__, other.__class__.__name__))
+            return self.scalarProduct(other)
 
     __rmul__ = __mul__ #commutative operation
 

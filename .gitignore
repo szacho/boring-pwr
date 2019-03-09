@@ -1,2 +1,6 @@
+__pycache__
+images
+zip_test
 temp.py
-/__pycache__/
+*.zip
+*.csv
