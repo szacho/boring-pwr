@@ -21,6 +21,7 @@ Feel free to [pull requests](https://github.com/szacho/boring-pwr/pulls).
 ### Algebra
 - [Essence of linear algebra (3blue1brown)](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 - [Linear algebra (KhanAcademy)](https://www.khanacademy.org/math/linear-algebra)
+- [Chapter 2 - Linear Algebra](http://www.deeplearningbook.org/contents/linear_algebra.html) (from [Deep Learning](http://www.deeplearningbook.org/) book)
 ### Calculus
 - [Essence of calculus (3blue1brown)](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)
 
