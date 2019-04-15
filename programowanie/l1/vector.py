@@ -9,7 +9,7 @@ class Vector:
         """
         self.size = int(size)
         self.values = [0]*int(size)
-            
+
 
     def setValues(self, values):
         """
@@ -26,13 +26,13 @@ class Vector:
             Generates random vector elements from range [-10, 10]
         """
         self.setValues([ (random()-.5)*20 for _ in range(self.size) ])
-    
+
     def length(self):
         """
             Returns length of the vector
         """
         return sqrt(sum([ x**2 for x in self.values ]))
-    
+
     def sumOfValues(self):
         """
             Returns sum of vector elements
@@ -52,13 +52,13 @@ class Vector:
             [] operator returns particular vector element
         """
         return self.values[key]
-    
+
     def __contains__(self, value):
         """
             'in' operator checks if an element belongs to a vector
         """
         return value in self.values
-    
+
     def __add__(self, other):
         """
             + operator adds two vectors element by element if it's possible
@@ -72,7 +72,7 @@ class Vector:
             new = Vector()
             new.setValues(added)
             return new
-            
+
     def __sub__(self, other):
         """
             - operator substracts two vectors element by element if it's possible

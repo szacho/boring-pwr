@@ -7,37 +7,43 @@ from scipy.integrate import odeint
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-Q', type=float, default=2, help='param Q')
-    parser.add_argument('-w', type=float, default=2/3, help='param w')
-    parser.add_argument('-A', type=float, default=0.1, help='param A')
+    parser.add_argument('-w', type=str, default='2/3', help='param w')
+    parser.add_argument('-A', type=float, default=0.5, help='param A')
     parser.add_argument('-v', type=float, default=0, help='starting velocity')
     parser.add_argument('-th', type=float, default=2, help='starting theta')
+    parser.add_argument('-L', type=float, default=1.5, help='length of the pendulum')
     args = parser.parse_args()
+    try:
+        args.w = float(eval(args.w))
+    except :
+        raise Exception('Wrong arguments')
     pendulum(args)
 
 def pendulum(args):
+    g, L = 9.81, args.L
     params = (args.A, args.Q, args.w)
     x0 = [args.th, args.v]
-    t = np.linspace(0, 10, 1000)
+    t = np.linspace(0, 10, 1000)*np.sqrt(g/L)
     X = odeint(deriv, x0, t, args=params)
 
     plotSolution(X, t)
-    animation(X[:,0], t)
+    animation(X[:,0], t, L)
 
-def animation(X, t):
+def animation(X, t, L):
     fig, ax = plt.subplots()
     xdata, ydata = [], []
     ln, = plt.plot([], [])
     plt.axis('equal')
 
     def init():
-        lim = 1.5
+        lim = 2*L
         ax.set_xlim(-lim, lim)
         ax.set_ylim(-lim, lim)
         return ln,
 
     def update(i):
-        x = [0, np.sin(X[i])]
-        y = [0, -np.cos(X[i])]
+        x = [0, L*np.sin(X[i])]
+        y = [0, L*(-np.cos(X[i]))]
         ln.set_data(x, y)
         return ln,
 
