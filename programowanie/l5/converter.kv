@@ -1,0 +1,52 @@
+
+<Converter>:
+    convert_value_input: convert_value
+    from_currency_dropdown: from_currency
+    to_currency_dropdown: to_currency
+    converted_label: converted
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    ChooseCurrency:
+        id: from_currency
+        text: "Convert from..."
+        height: 45
+        size_hint_y: None
+        on_selected: root.convert(convert_value.text)
+
+    ChooseCurrency:
+        id: to_currency
+        text: "Convert to..."
+        height: 45
+        size_hint_y: None
+        on_selected: root.convert(convert_value.text)
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: '40dp'
+        Label:
+            text: "Value"
+            font_size: 18
+        TextInput:
+            id: convert_value
+            height: 40
+            size_hint_y: None
+            text: "10"
+            multiline: False
+            font_size: 24
+            on_text: root.convert(self.text)
+
+    Label:
+        id: converted
+        font_size: 24
+        text: 'Choose currencies.'
+        size_hint_y: None
+        height: '40dp'
+    Widget:
+    Button:
+        text: "Exit"
+        size_hint_y: None
+        height: 45
+        on_press: app.stop()
